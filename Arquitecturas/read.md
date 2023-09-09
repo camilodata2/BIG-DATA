@@ -12,7 +12,7 @@ Almacenamiento: En lugar de utilizar un sistema de almacenamiento tradicional, c
 Re-procesamiento: Una característica clave de la arquitectura Kappa es la capacidad de volver a procesar los datos históricos en cualquier momento. Esto se logra
 
 <img src="https://static.platzi.com/media/user_upload/kappa-2a1cfa55-e49f-4221-beed-be3331721d7b.jpg"
-alt="arquitectira kappa" wight="300">
+alt="arquitectira kappa" width="300">
 
 ##  :thumbsup: Arquitectuta Batch
 La arquitectura batch se refiere a un enfoque de procesamiento de datos en el que se recopilan, procesan y almacenan datos en lotes, en lugar de procesarlos en tiempo real como en las arquitecturas de flujo continuo. Este enfoque es comúnmente utilizado en sistemas que no requieren respuestas inmediatas y pueden tolerar cierto retraso en el procesamiento.
@@ -31,8 +31,8 @@ Escalabilidad: La arquitectura batch es escalable y puede manejar grandes volúm
 
 Ejemplos de uso: La arquitectura batch se utiliza en una variedad de aplicaciones, como el procesamiento de nóminas, la generación de informes financieros, la agregación de datos para análisis empresariales y muchas otras tareas que no requieren una respuesta inmediata.
 
-<img src="https://static.platzi.com/media/user_upload/batch-fc017463-8281-4421-bb8d-1aec61a8dfb6.jpg"
-alt="arquitectira batch wight="300">
+<img src="https://www.pandaid.com/wp-content/uploads/2019/04/cuadroRecurso-2infomedia-1.png"
+alt="arquitectira batch" width="300">
 
 ### :runner: Arquitectura Lambda
 se refiere a un patrón de diseño que se utiliza comúnmente en sistemas de procesamiento de datos en tiempo real y aplicaciones de transmisión de eventos. No debe confundirse con la función de cómputo sin servidor de AWS Lambda, que es un servicio de cómputo en la nube de Amazon Web Services.
@@ -49,5 +49,5 @@ Almacenamiento persistente: En la arquitectura Lambda, se utiliza un almacenamie
 
 La arquitectura Lambda permite a las organizaciones combinar el análisis en tiempo real con el análisis a largo plazo para obtener una comprensión completa de los datos y tomar decisiones informadas. Es especialmente útil en aplicaciones como el análisis de registros, la detección de anomalías, la monitorización en tiempo real, el análisis de redes sociales y muchas otras aplicaciones de Big Data en las que es esencial procesar y analizar datos en tiempo real y a largo plazo.
 
-<img src="https://www.diegocalvo.es/wp-content/uploads/2017/11/arquitectura_lambda.png"
-alt="arquitectira lambda" wight="300">
+<img src="https://2.bp.blogspot.com/-2vVLzIcjaCE/UzCZUy1I4lI/AAAAAAAAB2I/FPwcHQcE3kM/s1600/lambda8.jpg"
+alt="arquitectira lambda" width="300">
