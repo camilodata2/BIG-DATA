@@ -1,4 +1,4 @@
-# Arquitectura Kappa
+# :fire: Arquitectura Kappa
 La arquitectura Kappa es un patrón de diseño utilizado en sistemas de procesamiento de datos en tiempo real y aplicaciones de transmisión de eventos. Esta arquitectura se utiliza comúnmente en el contexto de la ingesta, procesamiento y análisis de flujos de datos en tiempo real, como los datos generados por sensores, aplicaciones de monitoreo en tiempo real, redes sociales y más.
 
 A continuación, se describen los principales componentes y características de la arquitectura Kappa:
@@ -14,7 +14,7 @@ Re-procesamiento: Una característica clave de la arquitectura Kappa es la capac
 <img src="https://static.platzi.com/media/user_upload/kappa-2a1cfa55-e49f-4221-beed-be3331721d7b.jpg"
 alt="arquitectira kappa" wight="300">
 
-## Arquitectuta Batch
+##  :thumbsup: Arquitectuta Batch
 La arquitectura batch se refiere a un enfoque de procesamiento de datos en el que se recopilan, procesan y almacenan datos en lotes, en lugar de procesarlos en tiempo real como en las arquitecturas de flujo continuo. Este enfoque es comúnmente utilizado en sistemas que no requieren respuestas inmediatas y pueden tolerar cierto retraso en el procesamiento.
 
 Aquí hay algunos aspectos clave de la arquitectura batch:
@@ -34,7 +34,7 @@ Ejemplos de uso: La arquitectura batch se utiliza en una variedad de aplicacione
 <img src="https://static.platzi.com/media/user_upload/batch-fc017463-8281-4421-bb8d-1aec61a8dfb6.jpg"
 alt="arquitectira batch wight="300">
 
-### Arquitectura Lambda
+### :runner: Arquitectura Lambda
 se refiere a un patrón de diseño que se utiliza comúnmente en sistemas de procesamiento de datos en tiempo real y aplicaciones de transmisión de eventos. No debe confundirse con la función de cómputo sin servidor de AWS Lambda, que es un servicio de cómputo en la nube de Amazon Web Services.
 
 La arquitectura Lambda se basa en el principio de dividir el procesamiento de datos en dos vías separadas, una para el procesamiento en tiempo real y otra para el procesamiento a largo plazo o batch. Esta arquitectura se utiliza para resolver el desafío de combinar datos en tiempo real con datos históricos y realizar análisis avanzados en sistemas que generan flujos de eventos continuos. A continuación, se describen los componentes clave de la arquitectura Lambda:
