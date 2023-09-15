@@ -3,7 +3,9 @@ Este es un ejemplo de como hacer un proceso de etl desde la computadora loca, y 
 proceso a un bucket de S3, 
 Pero hare un un ejemplo mas completo donde se hace un proceso de ETL y todo orquestado desde AWS y 
 conectado desde APache Zeppelin
-"""
+Recuerda configurar tus variables de entorno y ademas te comiendo que uses dbeaver-ce,para cargar
+la data transformada, esto si usas AWS Redshift """
+
 import pandas as pd
 import boto3
 import psycopg2
