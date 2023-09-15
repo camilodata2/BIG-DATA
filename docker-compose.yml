@@ -1,0 +1,14 @@
+version: "3"
+
+volumes:
+  zeppelin_notebook: {}
+  zeppelin_conf: {}
+
+services:
+  zeppelin:
+    image: apache/zeppelin:0.8.1
+    volumes:
+      - zeppelin_notebook:/zeppelin/notebook
+      - zeppelin_conf:/zeppelin/conf
+    ports:
+      - '8080:8080'
