@@ -25,10 +25,7 @@ Importa o crea un notebook en Apache Zeppelin para escribir y ejecutar consultas
 ###### :eyes: Consultas con AWS Athena
 Para realizar un proceso de ETL (Extraer, Transformar, Cargar) utilizando servicios de AWS y Apache Zeppelin, primero debemos configurar y utilizar AWS Glue, un servicio de AWS diseñado para facilitar este tipo de procesos. También utilizaremos AWS Athena para realizar consultas a la base de datos que crearemos durante el proceso. Antes de continuar, es importante tener conocimiento sobre qué es AWS Glue y cómo funciona. Puedes obtener más información sobre AWS Glue en la carpeta de ETL de este proyecto o mediante tus propias investigaciones.
 
-###### :nerd: Visualización y Análisis
+Recuerda siempre seguir las mejores prácticas de seguridad al configurar tus credenciales de AWS y mantener la privacidad y la integridad de tus datos.Tambien añado un link donde pueden consultar mas sobre AWS GLUE
+job en aws glue es la que hace la tarea de transformacion
 
-Utiliza las capacidades de visualización de datos de Apache Zeppelin para analizar y visualizar los resultados de tus consultas. Puedes generar gráficos y tablas para presentar los resultados de manera efectiva.
-
-Con estos pasos, habrás realizado un proceso de ETL completo utilizando servicios de AWS, aprovechando AWS Glue para la extracción, transformación y carga de datos, y AWS Athena para realizar consultas SQL. Apache Zeppelin te ayudará a gestionar todo el proceso y analizar los datos de manera eficiente.
-
-Recuerda siempre seguir las mejores prácticas de seguridad al configurar tus credenciales de AWS y mantener la privacidad y la integridad de tus datos.
+https://medium.com/@milton32sanabria/construyendo-un-etl-en-aws-glue-6601309be3cb

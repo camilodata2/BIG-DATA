@@ -1,0 +1,3 @@
+aws kafka list-clústers --region us-east-1
+aws kafka describe-clúster --region us-east-1 --clúster-arn
+aws kafka get-bootstrap-brokers --region us-east-1 --clúster-arn [clústerARN]

@@ -1,5 +1,6 @@
 from raw_data import *
 from io import StringIO
+import csv
 # Función para cargar datos en un bucket de S3
 def cargar_datos_en_s3(data, aws_access_key_id, aws_secret_access_key, region_name, bucket_name, file_name):
     # Convierte el DataFrame en una cadena CSV
