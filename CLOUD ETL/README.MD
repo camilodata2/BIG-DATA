@@ -29,3 +29,8 @@ Recuerda siempre seguir las mejores prácticas de seguridad al configurar tus cr
 job en aws glue es la que hace la tarea de transformacion
 
 https://medium.com/@milton32sanabria/construyendo-un-etl-en-aws-glue-6601309be3cb
+
+athena se conecta al glu catalo,esto le dice donde esta la data en s3,basado en sql, para hacer consultas sql,cuando se dice que es serveless quiere decir que no tiene carga de administarcion o crear servidores para usar este servicio de aws,
+
+este servicio tiene integracion nativa con ,AWS GLUE,REDSHIT,S3,DYNAMODB
+

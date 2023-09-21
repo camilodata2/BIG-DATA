@@ -1,0 +1,139 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Cloudformation Stack to deploy BigData Enviroment
+Parameters:
+    awsRegion:
+        Description: awsRegion
+        Default: us-east-1
+        Type: String
+    EnvironmentName:
+        Description: "A prefix for the resource names."
+        Type: String
+        Default: OPS-BigData
+Mappings:
+    EnvironmentMap:
+        OPS-BigData-Emr:
+            EnvironmentName: OPS-BigData
+            VpcAddress: 10.4.0.0/16
+            PublicSubNetAAddress: 10.4.0.0/24
+            PublicSubNetBAddress: 10.4.1.0/24
+            PrivateSubNetAAddress: 10.4.2.0/24
+            PrivateSubNetBAddress: 10.4.3.0/24
+        DEVELOPMENT-BigData-Emr:
+            EnvironmentName: DEVELOPMENT-BigData
+            VpcAddress: 10.5.0.0/16
+            PublicSubNetAAddress: 10.5.0.0/24
+            PublicSubNetBAddress: 10.5.1.0/24
+            PrivateSubNetAAddress: 10.5.2.0/24
+            PrivateSubNetBAddress: 10.5.3.0/24
+        STAGING-BigData-Emr:
+            EnvironmentName: STAGING-BigData
+            VpcAddress: 10.6.0.0/16
+            PublicSubNetAAddress: 10.6.0.0/24
+            PublicSubNetBAddress: 10.6.1.0/24
+            PrivateSubNetAAddress: 10.6.2.0/24
+            PrivateSubNetBAddress: 10.6.3.0/24
+        PRODUCTION-BigData-Emr:
+            EnvironmentName: PRODUCTION-BigData
+            VpcAddress: 10.7.0.0/16
+            PublicSubNetAAddress: 10.7.0.0/24
+            PublicSubNetBAddress: 10.7.1.0/24
+            PrivateSubNetAAddress: 10.7.2.0/24
+            PrivateSubNetBAddress: 10.7.3.0/24
+Resources:
+    IngestCashoutsStep:
+        Type: "AWS::EMR::Step"
+        DependsOn: IngestContactsStep
+        Properties:
+            ActionOnFailure: "CONTINUE"
+            HadoopJarStep:
+                Args:
+                    - "spark-submit"
+                    - "--py-files"
+                    - "/tmp/file.py"
+                Jar: "command-runner.jar"
+            Name: "IngestCashouts"
+            JobFlowId: !Ref EMRClusterV5
+    EMRClusterV5:
+        Type: AWS::EMR::Cluster
+        Properties:
+            Instances:
+                MasterInstanceGroup:
+                    InstanceCount: 1
+                    InstanceType: "r4.2xlarge"
+                    Market: "ON_DEMAND"
+                    Name: "prd-Emr-master-BigData"
+                CoreInstanceGroup:
+                    InstanceCount: 2
+                    InstanceType: "r4.2xlarge"
+                    Market: "ON_DEMAND"
+                    Name: "prd-Emr-core-BigData-Dev"
+                Ec2SubnetId:
+                    Fn::ImportValue:
+                        !Join ['-', ['PublicSubNetAId',!FindInMap [ EnvironmentMap, !Ref "AWS::StackName", EnvironmentName ]]]
+                Ec2KeyName: Key-BigData
+                EmrManagedMasterSecurityGroup:
+                    Fn::ImportValue:
+                        !Join ['-', ['PortsForEmrMasterNode',!FindInMap [ EnvironmentMap, !Ref "AWS::StackName", EnvironmentName ]]]
+                EmrManagedSlaveSecurityGroup:
+                    Fn::ImportValue:
+                        !Join ['-', ['PortsForEmrCoreNode',!FindInMap [ EnvironmentMap, !Ref "AWS::StackName", EnvironmentName ]]]
+            BootstrapActions:
+                -
+                    Name: "BootstrapEMR"
+                    ScriptBootstrapAction:
+                        Path: "s3://mybucket/deploy/boot.sh"
+            LogUri: "s3://mybucket/emr/batch/"
+            Configurations:
+            - Classification: hadoop-env
+              Configurations:
+              - Classification: export
+                ConfigurationProperties:
+                  JAVA_HOME: "/usr/lib/jvm/java-1.8.0"
+            - Classification: spark-env
+              Configurations:
+              - Classification: export
+                ConfigurationProperties:
+                  JAVA_HOME: "/usr/lib/jvm/java-1.8.0"
+            - Classification: hadoop-log4j
+              ConfigurationProperties:
+                    hadoop.log.maxfilesize: 256MB
+                    hadoop.log.maxbackupindex: '3'
+                    hadoop.security.log.maxfilesize: 256MB
+                    hadoop.security.log.maxbackupindex: '3'
+                    hdfs.audit.log.maxfilesize: 256MB
+                    hdfs.audit.log.maxbackupindex: '3'
+                    mapred.audit.log.maxfilesize: 256MB
+                    mapred.audit.log.maxbackupindex: '3'
+                    hadoop.mapreduce.jobsummary.log.maxfilesize: 256MB
+                    hadoop.mapreduce.jobsummary.log.maxbackupindex: '3'
+            - Classification: hbase-log4j
+              ConfigurationProperties:
+                  hbase.log.maxbackupindex: '3'
+                  hbase.log.maxfilesize: 10MB
+                  hbase.security.log.maxbackupindex: '3'
+                  hbase.security.log.maxfilesize: 10MB
+            - Classification: yarn-site
+              ConfigurationProperties:
+                  yarn.log-aggregation.retain-seconds: '43200'
+            Applications:
+            - Name: Hadoop
+            - Name: Hive
+            - Name: Pig
+            - Name: Spark
+            Name: "Emr-cluster-BCI-BigData"
+            JobFlowRole: "EMR_EC2_DefaultRole"
+            ServiceRole: "EMR_DefaultRole"
+            ReleaseLabel: "emr-5.4.0"
+            VisibleToAllUsers: true
+            Tags:
+            - Key: Name
+              Value:
+                Fn::Join:
+                - ''
+                - - emr-instance-
+                  - Ref: AWS::StackName
+                  - ''
+            - Key: Environment
+            - Key: Stack ID
+              Value:
+                Ref: AWS::StackName
