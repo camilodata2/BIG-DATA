@@ -16,3 +16,5 @@ Valor: El objetivo final de Big Data es extraer información valiosa y conocimie
 Para manejar Big Data, se requieren tecnologías y herramientas especializadas, como sistemas de almacenamiento distribuido (por ejemplo, Hadoop y sistemas de archivos HDFS), bases de datos NoSQL, frameworks de procesamiento en paralelo (por ejemplo, Apache Spark), herramientas de análisis de datos, y técnicas de aprendizaje automático y análisis avanzado.
 ### :wink: Aplicavilidad
 Big Data tiene aplicaciones en una amplia gama de campos, como el análisis de negocios, la investigación científica, la atención médica, la seguridad cibernética, la optimización de operaciones y mucho más. La capacidad de procesar y analizar grandes cantidades de datos puede proporcionar información valiosa que puede llevar a la toma de decisiones más informadas y a la identificación de oportunidades y desafíos.
+
+<img src="Untitled Diagram-Page-6.drawio.png" alt="image of my ETL" width="200">
