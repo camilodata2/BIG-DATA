@@ -17,4 +17,4 @@ Para manejar Big Data, se requieren tecnologías y herramientas especializadas, 
 ### :wink: Aplicavilidad
 Big Data tiene aplicaciones en una amplia gama de campos, como el análisis de negocios, la investigación científica, la atención médica, la seguridad cibernética, la optimización de operaciones y mucho más. La capacidad de procesar y analizar grandes cantidades de datos puede proporcionar información valiosa que puede llevar a la toma de decisiones más informadas y a la identificación de oportunidades y desafíos.
 
-<img src="https://drive.google.com/file/d/16ZuVuDGtIEMxZtma-UWMlQsN0AoqDUsX/view?usp=drive_link" alt="image of my ETL" width="200">
+<img src="Screenshot from 2023-09-22 00-06-03.png" alt="image of my ETL" width="200">
